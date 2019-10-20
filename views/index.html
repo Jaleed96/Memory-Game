@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="css/memory.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <title>Memory Game</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-8">
+                <div class="info-bar">
+                    <table class="info-bar-table">
+                        <tr class="info-bar-table-row">
+                            <td id="tiles-label">TILES 5</td>
+                            <td id="trials-label">TRIAL 1 of 2</td>
+                            <td id="score-label">SCORE 210</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="game-board">
+                    <table id="game-table">
+                        <tr class="game-table-row">
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                        </tr>
+                        <tr class="game-table-row">
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                        </tr>
+                        <tr class="game-table-row">
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                        </tr>
+                        <tr class="game-table-row">
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                            <td class="game-table-element">|</td>
+                        </tr>
+                        <tr class="game-table-row">
+                            <td class="game-table-element">A</td>
+                            <td class="game-table-element">B</td>
+                            <td class="game-table-element">C</td>
+                            <td class="game-table-element">D</td>
+                            <td class="game-table-element">E</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="action-bar">
+                    <button type="button" class="btn btn-danger" id="terminate-game">
+                        Terminate
+                    </button>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <script src="./js/board.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+body {
+    background-color: #705045;
+}
+
+.info-bar {
+    width: 100%;
+    height: auto;
+}
+
+.info-bar-table {
+    float: right;
+    border-collapse: separate;
+}
+
+#tiles-label, #trials-label, #score-label {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #49332b;
+    width: fit-content;
+    padding: 0.15em 0.5em;
+}
+
+.game-board {
+    width: 100%;
+    margin-top: 20%;
+}
+
+#game-table {
+    margin: auto;
+    border-collapse: separate;
+    border: 0.75em solid #3f190c;
+}
+
+.game-table-element {
+    width: 10%;
+    background-color: #705045;
+    border: 1px solid #3f190c;
+    color: #705045;
+}
+
+.action-bar {
+    margin-top: 10%;
+    text-align: center;
+}
