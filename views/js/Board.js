@@ -2,6 +2,7 @@ function Board(tilesX = 5, tilesY = 5, tilesToHighlight = 4) {
     this.tilesToHighlight = tilesToHighlight;
     this.matrix = this.createMemoryMatrix(tilesX, tilesY, tilesToHighlight);
     this.score = 0;
+    this.isClickable = false;
 }
 
 Board.prototype.createMemoryMatrix = function(tilesX, tilesY, tilesToHighlight) {
