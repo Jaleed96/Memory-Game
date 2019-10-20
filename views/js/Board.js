@@ -6,11 +6,18 @@ function Board(tilesX = 5, tilesY = 5, tilesToHighlight = 4) {
 
 Board.prototype.createMemoryMatrix = function(tilesX, tilesY, tilesToHighlight) {
     let matrix = [];
+    let highlightedTiles = [];
+
+    for (let i = 0; i < tilesToHighlight; i++) {
+        let iNum = Math.floor(Math.random() * Math.floor(tilesY));
+        let jNum = Math.floor(Math.random() * Math.floor(tilesX));
+        highlightedTiles.push(`${jNum}${iNum}`);
+    }
 
     for (let i = 0; i < tilesY; i++) {
         matrix.push([]);
         for (let j = 0; j < tilesX; j++) {
-            if (j % 2 != 0) {
+            if (highlightedTiles.includes(`${j}${i}`)) {
                 matrix[i].push(true);
             } else {
                 matrix[i].push(false);

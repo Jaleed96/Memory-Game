@@ -1,5 +1,5 @@
 function init() {
-    const board = new window.Board.prototype.constructor();
+    const board = new window.Board.prototype.constructor(7, 7, 8);
     renderBoard(board);
 }
 
@@ -12,7 +12,12 @@ function renderBoard(board) {
         row.setAttribute('class', 'game-table-row');
         for (let j = 0; j < board.getTilesX(); j++) {
             let tileElement = document.createElement('td');
-            tileElement.textContent = '|';
+            let buttonElement = document.createElement('button');
+            buttonElement.setAttribute('class', 'game-table-button btn');
+            buttonElement.setAttribute('id', `${j}${i}`);
+            buttonElement.setAttribute('onclick', "onTileClick(event, this.attributes)");
+            
+            tileElement.appendChild(buttonElement);
 
             if (matrix[i][j]) {
                 tileElement.setAttribute('class', 'game-table-element highlighted');
@@ -23,6 +28,11 @@ function renderBoard(board) {
         }
         boardElement.appendChild(row);
     }
+}
+
+function onTileClick(event, attributes) {
+    event.preventDefault();
+    console.log(attributes.id.value);
 }
 
 init();

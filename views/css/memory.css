@@ -31,17 +31,22 @@ body {
 }
 
 .game-table-element {
-    width: 10%;
     background-color: #705045;
     border: 1px solid #3f190c;
     color: #705045;
 }
 
+.game-table-button {
+    width: 100%;
+    padding: 1.5em;
+}
+
 .action-bar {
-    margin-top: 10%;
+    margin-top: 20%;
     text-align: center;
 }
 
 .highlighted {
     background-color: #66FDEA;
+    color: #66FDEA;
 }
