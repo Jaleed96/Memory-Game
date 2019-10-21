@@ -2,9 +2,11 @@ const board = new window.Board.prototype.constructor();
 
 function init() {
     renderBoard(board);
+
     toggleHighlightedTiles(true);
     setTimeout(function () {
         toggleHighlightedTiles(false);
+        rotateBoard();
         board.isClickable = true;
     }, 3000);
 }
@@ -64,7 +66,8 @@ function onTileClick(event, attributes) {
 }
 
 function rotateBoard() {
-    
+    let gameBoard = document.getElementById("game-table");
+    gameBoard.setAttribute('class', 'spun-game-table')
 }
 
 function onTerminateClick(event) {
