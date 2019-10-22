@@ -2,8 +2,8 @@ const board = new window.Board.prototype.constructor();
 
 function init() {
     renderBoard(board);
-
     toggleHighlightedTiles(true);
+
     setTimeout(function () {
         toggleHighlightedTiles(false);
         rotateBoard();
@@ -32,7 +32,7 @@ function renderBoard(board) {
     }
 
     let tilesLabel = document.getElementById("tiles-label");
-    tilesLabel.textContent = `TILES ${board.getTilesHighlighted()}`;
+    tilesLabel.textContent = `TILES ${board.getHighlightedTiles().length}`;
 
     let scoreLabel = document.getElementById("score-label");
     scoreLabel.textContent = `SCORE ${board.getScore()}`;
@@ -61,17 +61,88 @@ function toggleHighlightedTiles(isHidden = false) {
 function onTileClick(event, attributes) {
     if (board.isClickable) {
         event.preventDefault();
-        console.log(attributes.id.value);
+        let tile = document.getElementById(attributes.id.value).parentElement;
+        let curScore = board.getScore();
+
+        if (board.getHighlightedTiles().includes(attributes.id.value)) {
+            tile.setAttribute('class', 'game-table-element highlighted');
+
+            board.setScore(curScore + 1);
+            board.setTilesLeft(board.getTilesLeft() - 1);
+            onScoreUpdate();
+
+            if (board.getTilesLeft() == 0) {
+                onBoardSolved();
+            }
+
+        } else {
+            tile.setAttribute('class', 'game-table-element wrong-tile');
+            if (curScore >= 1) {
+                board.setScore(curScore - 1);
+                onScoreUpdate();
+            }
+            if (board.getScore() < 1) {
+                terminateGame();
+            }
+        }
     }
+}
+
+function onScoreUpdate() {
+    let scoreLabel = document.getElementById('score-label');
+    scoreLabel.textContent = `SCORE ${board.getScore()}`
+}
+
+function terminateGame() {
+    board.isClickable = false;
+    toggleHighlightedTiles(true);
 }
 
 function rotateBoard() {
     let gameBoard = document.getElementById("game-table");
-    gameBoard.setAttribute('class', 'spun-game-table')
+    gameBoard.setAttribute('class', 'spun-game-table');
 }
 
 function onTerminateClick(event) {
     event.preventDefault();
+}
+
+function onBoardSolved() {
+    board.isClickable = false;
+    let curTilesX = board.getTilesX();
+    let curTilesY = board.getTilesY();
+    let curHighlightedTiles = board.getHighlightedTiles().length;
+
+    console.log(curTilesX, curTilesY, curHighlightedTiles);
+
+    let difficultyCategory = Math.floor(Math.random() * Math.floor(3));
+    
+    switch(difficultyCategory) {
+        case 0:
+            board.generateMemoryMatrix(curTilesX + 1, curTilesY, curHighlightedTiles);
+            console.log(curTilesX+1, curTilesY, curHighlightedTiles);
+            break;
+        case 1:
+            board.generateMemoryMatrix(curTilesX, curTilesY + 1, curHighlightedTiles);
+            console.log(curTilesX, curTilesY+1, curHighlightedTiles);
+            break;
+        case 2:
+            board.generateMemoryMatrix(curTilesX, curTilesY, curHighlightedTiles + 1);
+            console.log(curTilesX, curTilesY, curHighlightedTiles+1);
+            break;
+    }
+
+    cleanUpBoard();
+
+    init();
+}
+
+function cleanUpBoard() {
+    let gameTable = document.getElementById('game-table');
+
+    while (gameTable.firstChild) {
+        gameTable.removeChild(gameTable.firstChild);
+    }
 }
 
 init();

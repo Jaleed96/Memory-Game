@@ -50,6 +50,10 @@ body {
     background-color: #66FDEA;
 }
 
+.wrong-tile {
+    background-color: #C82333;
+}
+
 .spun-game-table {
     transition: 1s;
     -webkit-transition: 1s;
