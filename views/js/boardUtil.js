@@ -113,20 +113,23 @@ function onBoardSolved() {
     let curTilesY = board.getTilesY();
     let curHighlightedTiles = board.getHighlightedTiles().length;
 
-    console.log(curTilesX, curTilesY, curHighlightedTiles);
-
-    let difficultyCategory = Math.floor(Math.random() * Math.floor(3));
+    let difficultyCategory = Math.floor(Math.random() * Math.floor(8));
     
     switch(difficultyCategory) {
         case 0:
+        case 1:
             board.generateMemoryMatrix(curTilesX + 1, curTilesY, curHighlightedTiles);
             console.log(curTilesX+1, curTilesY, curHighlightedTiles);
             break;
-        case 1:
+        case 2:
+        case 3:
             board.generateMemoryMatrix(curTilesX, curTilesY + 1, curHighlightedTiles);
             console.log(curTilesX, curTilesY+1, curHighlightedTiles);
             break;
-        case 2:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
             board.generateMemoryMatrix(curTilesX, curTilesY, curHighlightedTiles + 1);
             console.log(curTilesX, curTilesY, curHighlightedTiles+1);
             break;
@@ -139,6 +142,7 @@ function onBoardSolved() {
 
 function cleanUpBoard() {
     let gameTable = document.getElementById('game-table');
+    gameTable.className = '';
 
     while (gameTable.firstChild) {
         gameTable.removeChild(gameTable.firstChild);

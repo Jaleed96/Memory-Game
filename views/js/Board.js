@@ -19,6 +19,7 @@ Board.prototype.generateMemoryMatrix = function (tilesX, tilesY, tilesToHighligh
     }
 
     this.highlightedTiles = highlightedTiles;
+    this.tilesLeft = this.highlightedTiles.length;
 
     for (let i = 0; i < tilesY; i++) {
         matrix.push([]);
