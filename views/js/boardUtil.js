@@ -105,6 +105,11 @@ function rotateBoard() {
 
 function onTerminateClick(event) {
     event.preventDefault();
+    let confirmation = confirm("Are you sure you want to terminate the game?");
+    if (confirmation) {
+        localStorage.setItem('score', board.getScore());
+        location.href = './summary.html';
+    }
 }
 
 function onRestartClick(event) {
@@ -154,4 +159,9 @@ function cleanUpBoard() {
     }
 }
 
-init();
+
+let curLocation = location.href.split('/')[location.href.split('/').length - 1];
+
+if (curLocation === "index.html") {
+    init();
+}

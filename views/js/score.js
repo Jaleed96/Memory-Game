@@ -79,4 +79,10 @@ async function postScore(player, score) {
     return Promise.resolve(response);
 }
 
-renderLeaderboard();
+curLocation = location.href.split('/')[location.href.split('/').length - 1];
+
+if (curLocation === "summary.html") {
+    renderSummary();
+} else if (curLocation === "leaderboard.html") {
+    renderLeaderboard();
+}
