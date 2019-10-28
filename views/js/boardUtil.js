@@ -107,6 +107,11 @@ function onTerminateClick(event) {
     event.preventDefault();
 }
 
+function onRestartClick(event) {
+    event.preventDefault();
+    location.href = './index.html';
+}
+
 function onBoardSolved() {
     board.isClickable = false;
     let curTilesX = board.getTilesX();

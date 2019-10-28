@@ -17,12 +17,26 @@
         <div class="row">
             <div class="col"></div>
             <div class="col-8">
-                
+                <table id="cur-score-table">
+                    <tr>
+                        <td id="cur-score-rank"></td>
+                        <td id="cur-score-name"></td>
+                        <td id="cur-score"></td>
+                    </tr>
+                </table>
+                <table id="leaderboard-table">
+                    
+                </table>
+                <button type="button" class="btn btn-info" id="terminate-game" onclick="onRestartClick(event)">
+                    Restart
+                </button>
             </div>
             <div class="col"></div>
         </div>
     </div>
+    <script src="./js/Board.js"></script>
     <script src="./js/score.js"></script>
+    <script src="./js/boardUtil.js"></script>
 </body>
 
 </html>
