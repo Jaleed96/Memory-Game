@@ -15,7 +15,7 @@ function createScore(scoreEntry) {
 
 function listAllScores() {
     return new Promise((resolve, reject) => {
-        Score.find({}).exec((err, data) => {
+        Score.find({}).sort({ score: -1 }).exec((err, data) => {
             if (err) reject(err);
             resolve(data);
         })
