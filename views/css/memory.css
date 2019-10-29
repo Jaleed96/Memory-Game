@@ -66,3 +66,22 @@ body {
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
+
+#cur-score-table {
+    margin-bottom: 10%;
+}
+
+.table-label {
+    width: 25%;
+    margin: auto;
+}
+
+.leaderboard {
+    color: white;
+}
+
+.leaderboard #restart-game {
+    width: 30%;
+    margin-right: 35%;
+    margin-left: 35%
+}

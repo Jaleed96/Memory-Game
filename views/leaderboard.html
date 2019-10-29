@@ -12,22 +12,37 @@
     <title>Leaderboard | Memory Game</title>
 </head>
 
-<body>
+<body class="leaderboard">
     <div class="container">
         <div class="row">
             <div class="col"></div>
             <div class="col-8">
-                <table id="cur-score-table">
+                <h3 class="table-label">Your score</h3>
+                <table id="cur-score-table" class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
                     <tr>
                         <td id="cur-score-rank"></td>
                         <td id="cur-score-name"></td>
                         <td id="cur-score"></td>
                     </tr>
                 </table>
-                <table id="leaderboard-table">
-                    
+                <h3 class="table-label">Leaderboard</h3>
+                <table id="leaderboard-table" class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
                 </table>
-                <button type="button" class="btn btn-info" id="terminate-game" onclick="onRestartClick(event)">
+                <button type="button" class="btn btn-info" id="restart-game" onclick="onRestartClick(event)">
                     Restart
                 </button>
             </div>
