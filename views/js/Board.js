@@ -8,6 +8,7 @@ function Board(tilesX = 5, tilesY = 5, tilesToHighlight = 4) {
 Board.prototype.generateMemoryMatrix = function (tilesX, tilesY, tilesToHighlight) {
     let matrix = [];
     let highlightedTiles = [];
+    this.selectedTiles = [];
 
     for (let i = 0; i < tilesToHighlight; i++) {
         let iNum = Math.floor(Math.random() * Math.floor(tilesY));
@@ -49,6 +50,10 @@ Board.prototype.getHighlightedTiles = function () {
     return this.highlightedTiles;
 }
 
+Board.prototype.getSelectedTiles = function () {
+    return this.selectedTiles;
+}
+
 Board.prototype.getMemoryMatrix = function () {
     return this.matrix;
 }
@@ -63,6 +68,10 @@ Board.prototype.getScore = function () {
 
 Board.prototype.setScore = function (score) {
     this.score = score;
+}
+
+Board.prototype.addSelectedTile = function(tile) {
+    this.selectedTiles.push(tile);
 }
 
 Board.prototype.setTilesLeft = function (tiles) {

@@ -64,7 +64,9 @@ function onTileClick(event, attributes) {
         let tile = document.getElementById(attributes.id.value).parentElement;
         let curScore = board.getScore();
 
-        if (board.getHighlightedTiles().includes(attributes.id.value)) {
+        if (board.getHighlightedTiles().includes(attributes.id.value) && !board.getSelectedTiles().includes(attributes.id.value)) {
+
+            board.addSelectedTile(attributes.id.value);
             tile.setAttribute('class', 'game-table-element highlighted');
 
             board.setScore(curScore + 1);
@@ -75,7 +77,7 @@ function onTileClick(event, attributes) {
                 onBoardSolved();
             }
 
-        } else {
+        } else if (board.getSelectedTiles().includes(attributes.id.value)) {} else {
             tile.setAttribute('class', 'game-table-element wrong-tile');
             if (curScore >= 1) {
                 board.setScore(curScore - 1);
