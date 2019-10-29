@@ -60,12 +60,14 @@ function onScoreSubmit(event) {
     let playerName = document.getElementById('player-name').value;
     let score = localStorage.getItem('score');
 
-    postScore(playerName, score).then((response) => {
-        console.log(response);
-        location.href = './leaderboard.html';
-    }).catch((error) => {
-        console.error(error);
-    })
+    if (playerName) {
+        postScore(playerName, score).then((response) => {
+            console.log(response);
+            location.href = './leaderboard.html';
+        }).catch((error) => {
+            console.error(error);
+        })
+    }
 }
 
 async function getScores() {
