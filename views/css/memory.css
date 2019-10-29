@@ -85,3 +85,23 @@ body {
     margin-right: 35%;
     margin-left: 35%
 }
+
+.summary {
+    color: white;
+    margin-top: 10%;
+}
+
+.score-heading {
+    width: 30%;
+    margin: 5% auto;
+}
+
+.summary #player-name {
+    width: 40%;
+    margin: auto;
+}
+
+.summary button {
+    width: 30%;
+    margin: 1.5% 35%;
+}
