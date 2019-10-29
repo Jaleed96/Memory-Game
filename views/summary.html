@@ -18,6 +18,13 @@
             <div class="col"></div>
             <div class="col-8">
                 <p> Your score: <span id="player-cur-score"></span></p>
+                <form>
+                    <div class="form-group">
+                        <label for="player-name">Name</label>
+                        <input type="text" class="form-control" id="player-name" placeholder="Harry Truman">
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="onScoreSubmit(event)">Submit</button>
+                </form>
                 <button type="button" class="btn btn-info" id="terminate-game" onclick="onRestartClick(event)">
                     Restart
                 </button>

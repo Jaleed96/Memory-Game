@@ -26,6 +26,7 @@ function renderLeaderboard() {
                 leaderBoardTable.appendChild(scoreRow);
             }
             if (!latestEntry) latestEntry = response[i];
+
             if (latestEntry.timestamp < response[i].timestamp) {
                 latestEntry = response[i];
                 index = i;
@@ -46,6 +47,25 @@ function renderCurScore(entry, i) {
     rank.textContent = i + 1;
     name.textContent = entry.name;
     score.textContent = entry.score;
+}
+
+function renderSummary() {
+    let curScore = document.getElementById('player-cur-score');
+    curScore.textContent = localStorage.getItem('score');
+}
+
+function onScoreSubmit(event) {
+    event.preventDefault();
+
+    let playerName = document.getElementById('player-name').value;
+    let score = localStorage.getItem('score');
+
+    postScore(playerName, score).then((response) => {
+        console.log(response);
+        location.href = './leaderboard.html';
+    }).catch((error) => {
+        console.error(error);
+    })
 }
 
 async function getScores() {
